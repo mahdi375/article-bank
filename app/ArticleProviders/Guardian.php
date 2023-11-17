@@ -103,7 +103,8 @@ class Guardian implements ArticleProvider
         return $this->source->articles()->create([
             'hash' => $hash,
             'title' => $data['webTitle'],
-            'url' => $data['webTitle'],
+            'url' => $data['webUrl'],
+            'published_at' => now(), // TODO: this should be null => later admins publish them + we must have a global scope on this...
         ]);
     }
 
