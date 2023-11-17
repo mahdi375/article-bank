@@ -29,13 +29,6 @@ class Article extends Model
         ];
     }
 
-    public static function createHashIfNotExists(string $key): string|bool
-    {
-        $hash = hash('xxh3', $key);
-
-        return self::where('hash', $hash)->exists() ? false : $hash;
-    }
-
     public function authors(): BelongsToMany
     {
         return $this->belongsToMany(Author::class);
