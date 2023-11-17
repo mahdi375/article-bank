@@ -31,4 +31,21 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'newsapi' => [
+        'base-url' => 'https://newsapi.org',
+        'domains' => 'bbc.co.uk, techcrunch.com, engadget.com',
+        'api-key' => env('NEWSAPI_API_KEY'),
+        'page-chunk' => 100,
+    ],
+
+    'new-york-times' => [
+        'base-url' => 'https://api.nytimes.com',
+        'api-key' => env('NEW_YORK_TIMES_API_KEY'),
+    ],
+
+    'guardian' => [
+        'base-url' => 'https://content.guardianapis.com',
+        'api-key' => env('GUARDIAN_API_KEY'),
+        'page-chunk' => 100,
+    ],
 ];

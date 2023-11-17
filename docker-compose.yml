@@ -46,7 +46,7 @@ services:
     environment:
       - PUID=${DOCKER_PUID:-1000}
       - PGID=${DOCKER_PGID:-1000}
-      - TZ=${DOCKER_TZ:-Australia/Brisbane}
+      - TZ=${DOCKER_TZ:-Asia/Tehran}
     restart: unless-stopped
     ports:
         - '${DOCKER_MEILISEARCH_PORT:-7700}:7700'
@@ -93,7 +93,7 @@ services:
     environment:
       - PUID=${DOCKER_PUID:-1000}
       - PGID=${DOCKER_PGID:-1000}
-      - TZ=${DOCKER_TZ:-Australia/Brisbane}
+      - TZ=${DOCKER_TZ:-Asia/Tehran}
     ports:
       - ${DOCKER_REDIS_PORT:-6379}:6379
     networks:
