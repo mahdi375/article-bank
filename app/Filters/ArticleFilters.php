@@ -8,7 +8,7 @@ class ArticleFilters extends AbstractFilters
     {
         $sources = explode(',', $value);
 
-        $this->builder->whereHas('sources', function ($query) use ($sources) {
+        $this->builder->whereHas('source', function ($query) use ($sources) {
             $query->whereIn('sources.name', $sources);
         });
     }
