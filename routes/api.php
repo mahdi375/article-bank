@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SourceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // TODO: in real app we should consider api versioning....
-// Versioning changes dir structure of: routes, controllers, resources, requests
+// TODO: Versioning changes dir structure of: routes, controllers, resources, requests
 
 Route::prefix('articles')->name('articles.')->controller(ArticleController::class)->group(function () {
     Route::get('/', 'index');
@@ -24,5 +26,13 @@ Route::prefix('articles')->name('articles.')->controller(ArticleController::clas
 });
 
 Route::prefix('categories')->name('categories.')->controller(CategoryController::class)->group(function () {
+    Route::get('/', 'index');
+});
+
+Route::prefix('authors')->name('authors.')->controller(AuthorController::class)->group(function () {
+    Route::get('/', 'index');
+});
+
+Route::prefix('sources')->name('sources.')->controller(SourceController::class)->group(function () {
     Route::get('/', 'index');
 });
