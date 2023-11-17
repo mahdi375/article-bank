@@ -9,7 +9,7 @@ use App\Models\Source;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 
-class Guardian implements ArticleProvider
+class Guardian extends ArticleProvider
 {
     private string $baseUrl;
 
@@ -49,7 +49,7 @@ class Guardian implements ArticleProvider
         $this->fromDate = date('Y-m-d', now()->subDay()->timestamp);
     }
 
-    private function setSource()
+    private function setSource(): void
     {
         if (! ($source = Source::where('name', 'Guardian')->first())) {
             throw GuardianException::sourceNotFound();
@@ -58,8 +58,10 @@ class Guardian implements ArticleProvider
         $this->source = $source;
     }
 
-    private function importPage(int $page)
+    private function importPage(int $page): void
     {
+        echo "page: {$page} \n";
+
         $url = $this->baseUrl.'/search';
         $params = [
             'api-key' => $this->apiKey,
@@ -78,7 +80,7 @@ class Guardian implements ArticleProvider
         $results = Arr::get($response, 'results', []);
 
         foreach ($results as $articleData) {
-            $hash = $this->checkHash($articleData['id']);
+            $hash = $this->createHashIfNotExists($articleData['id']);
 
             if (! $hash) {
                 continue;
@@ -91,11 +93,6 @@ class Guardian implements ArticleProvider
         if ($this->hasNextPage(Arr::get($response, 'pages'), $page)) {
             $this->importPage(++$page);
         }
-    }
-
-    private function checkHash(string $key): bool|string
-    {
-        return Article::createHashIfNotExists($key);
     }
 
     private function importArticle(string $hash, array $data): Article
@@ -121,7 +118,7 @@ class Guardian implements ArticleProvider
         $category->articles()->attach($articleId);
     }
 
-    private function hasNextPage($pages, $currentPage)
+    private function hasNextPage(int $pages, int $currentPage): bool
     {
         return $pages > $currentPage;
     }
