@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 // TODO: Versioning changes dir structure of: routes, controllers, resources, requests
 
 Route::prefix('articles')->name('articles.')->controller(ArticleController::class)->group(function () {
-    Route::get('/', 'index');
-    Route::get('{article}', 'show');
+    Route::get('/', 'index')->name('index');
+    Route::get('{article}', 'show')->name('show');
 });
 
 Route::prefix('categories')->name('categories.')->controller(CategoryController::class)->group(function () {
