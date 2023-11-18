@@ -34,6 +34,10 @@ docker exec -it innoscripta-app-1 php artisan app:fetch-articles New-York-Times
 docker exec -it innoscripta-app-1 php artisan app:fetch-articles News-Api
 ```
 
+### Run tests
+```bash
+docker exec -it innoscripta-app-1 php artisan test
+```
 ---
 
 ### Screenshots

@@ -57,7 +57,7 @@ services:
 
   # Database
   mysql:
-      image: 'mysql/mysql-server:8.0'
+      image: 'mysql:8.2.0'
       ports:
           - '${DOCKER_MYSQL_PORT:-3306}:3306'
       environment:
