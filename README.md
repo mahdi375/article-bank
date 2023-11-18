@@ -46,3 +46,7 @@ docker exec -it innoscripta-app-1 php artisan test
     
 - postman collection
     ![](doc/imgs/2.png)
+
+- running tests
+    ![](doc/imgs/3.png)
+    > I'm in love with tests, but writing all tests requires time. :)
