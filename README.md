@@ -1,8 +1,8 @@
-# innoscripta
-## Intro
-<!-- tell about tools and tech stack and design patters... -->
+# Innoscripta Article App
+## `Intro`
+Article Application is an app that pulls articles from 3 sources (Guardian, New-York-Times, News-Api) each day usig scheduled commands.
 
-## Setup
+## `Setup`
 ### Clone the project
 
 ```bash
@@ -20,7 +20,7 @@ cp ./.env.example .env
 ```bash
 docker compose up -d
 ```
-> `It takes about 15 sec to make all containers up (health checking)`
+> `It takes about 15 sec to make all containers up (health checking), after building docker images`
 
 ### Run seeders
 ```bash
@@ -34,10 +34,6 @@ docker exec -it innoscripta-app-1 php artisan app:fetch-articles New-York-Times
 docker exec -it innoscripta-app-1 php artisan app:fetch-articles News-Api
 ```
 
-### Run tests
-```bash
-docker exec -it innoscripta-app-1 php artisan test
-```
 ---
 
 ### Screenshots
