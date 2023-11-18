@@ -4,6 +4,11 @@ namespace App\Filters;
 
 class ArticleFilters extends AbstractFilters
 {
+    public function search(string $value): void
+    {
+        $this->builder->where('title', 'LIKE', "%$value%");
+    }
+
     public function sources(string $value): void
     {
         $sources = explode(',', $value);

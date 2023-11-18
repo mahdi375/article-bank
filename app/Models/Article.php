@@ -7,27 +7,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
     use Filterable;
     use HasFactory;
-    use Searchable;
 
     protected $guarded = ['id'];
 
     protected $casts = [
         'published_at' => 'datetime',
     ];
-
-    public function toSearchableArray()
-    {
-        return [
-            'id' => (int) $this->id,
-            'title' => $this->title,
-        ];
-    }
 
     public function authors(): BelongsToMany
     {

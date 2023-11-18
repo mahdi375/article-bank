@@ -1,5 +1,8 @@
 # innoscripta
+## Intro
+<!-- tell about tools and tech stack and design patters... -->
 
+## Setup
 ### Clone the project
 
 ```bash
@@ -30,13 +33,6 @@ docker exec -it innoscripta-app-1 php artisan app:fetch-articles Guardian
 docker exec -it innoscripta-app-1 php artisan app:fetch-articles New-York-Times
 docker exec -it innoscripta-app-1 php artisan app:fetch-articles News-Api
 ```
-
-### Delete and import (just for confirmation)
-```bash
-docker exec -it innoscripta-app-1 php artisan scout:delete-all-indexes
-docker exec -it innoscripta-app-1 php artisan scout:import "App\Models\Article"
-```
-
 
 ### Run tests
 ```bash
