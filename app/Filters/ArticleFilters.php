@@ -4,6 +4,7 @@ namespace App\Filters;
 
 class ArticleFilters extends AbstractFilters
 {
+    // TODO: we can use advanced searchs like `scout`... (bucause `%like%` ignore mysql index)
     public function search(string $value): void
     {
         $this->builder->where('title', 'LIKE', "%$value%");
