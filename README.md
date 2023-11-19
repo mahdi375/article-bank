@@ -41,6 +41,8 @@ docker exec -it innoscripta-app-1 php artisan test
 ---
 
 ### Screenshots
+- launch
+    ![](doc/imgs/4.png)
 - docker containers
     ![](doc/imgs/1.png)
     
